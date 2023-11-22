@@ -5,6 +5,7 @@ import booksRoutes from "./routes/books.js";
 import notesRoutes from "./routes/notes.js";
 import historyRoutes from "./routes/history.js";
 import goalRoutes from "./routes/goal.js";
+import quoteRoutes from "./routes/quote.js";
 
 const app = express();
 const PORT = 5001;
@@ -12,7 +13,7 @@ const PORT = 5001;
 app.use("/images/books", express.static("uploads/images/books"));
 
 const corsOptions = {
-  origin: "https://my-reads-kappa-seven.vercel.app",
+  origin: "*",
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
 
@@ -22,7 +23,7 @@ app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://my-reads-kappa-seven.vercel.app",
+    "*",
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -40,6 +41,7 @@ app.use("/api/books", booksRoutes);
 app.use("/api/notes", notesRoutes);
 app.use("/api/history", historyRoutes);
 app.use("/api/goal", goalRoutes);
+app.use("/api/quote", quoteRoutes);
 
 app.get("/", (req, res) => res.send("Welcome to the MyReads API!"));
 app.all("*", (req, res) =>

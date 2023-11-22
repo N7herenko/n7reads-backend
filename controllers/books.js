@@ -43,7 +43,7 @@ export const createBook = async (req, res) => {
       req.body;
 
     const data = {
-      image: `https://6d25tc-5001.csb.app/images/books/` + image,
+      image: `https://xh8m8p-5001.csb.app/images/books/` + image,
       type: type,
       title: title,
       description: description,
@@ -98,7 +98,7 @@ export const updateBook = async (req, res) => {
 
       const bookData = {
         image: req.file?.filename
-          ? `https://6d25tc-5001.csb.app/images/books/` + req.file.filename
+          ? `https://xh8m8p-5001.csb.app/images/books/` + req.file.filename
           : book.image,
         type: type || book.type,
         title: title || book.title,
